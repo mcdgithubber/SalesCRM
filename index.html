@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>CRM Dashboard V2</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-title">Sales CRM</div>
+  <nav class="nav-links">
+     <a href="index.html" class="nav-link">Dashboard</a>
+  <a href="sales.html" class="nav-link">Sales</a>
+<a href="clients.html" class="nav-link">Clients</a>
+    <button id="theme-toggle">🌓Dark/Light</button>
+  </nav>
+</header>
+
+  <main>
+    <section class="employee-section">
+  <h2>Employees</h2>
+  <input type="text" id="employeeSearch" placeholder="Filter by name or status..." />
+  <div class="employee-scroll-vertical">
+    <div id="employeeCards" class="card-grid"></div>
+  </div>
+</section>
+    <section class="gauge-container">
+      <h2>Revenue Gauge</h2>
+       <div class="gauge-meta">
+         <span>Total Monthly Revenue: </span>
+         <button id="totalRevenueBtn">$0</button>
+      </div>
+      <div class="gauge-box">
+       <canvas id="revenueGauge" width="150" height="150"></canvas>
+      </div>
+
+    </section>
+    <section class="chart-section">
+      <h2>Employees Revenue Chart</h2>
+      <div class="chart-wrapper">
+        <canvas id="employeeRevenueChart"></canvas>
+      </div>
+
+    </section>
+  </main>
+  <script src="js/script.js"></script>
+<script>
+  // Highlight active nav link
+  const currentPath = window.location.pathname.split("/").pop();
+  document.querySelectorAll(".nav-link").forEach(link => {
+    if (link.getAttribute("href") === currentPath) {
+      link.classList.add("active");
+    }
+  });
+</script>
+</body>
+</html>
